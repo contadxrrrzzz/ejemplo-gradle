@@ -20,12 +20,7 @@ pipeline {
             }
         }
 
-	stage ('Run'){
-            steps
-                {
-                    echo 'TODO: run'          
-                }            
-        }
+
         
       stage('SonarQube analysis') {
     withSonarQubeEnv('My SonarQube Server') {
@@ -33,7 +28,12 @@ pipeline {
     } // submitted SonarQube taskId is automatically attached to the pipeline context
   }
 }
-      
+      	stage ('Run'){
+            steps
+                {
+                    echo 'TODO: run'          
+                }            
+        }
       
       
  }
