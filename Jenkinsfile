@@ -1,5 +1,10 @@
 pipeline {
     agent any
+	
+	tools{
+	gradle 'grdl'
+		maven 'maven'
+	}
 
     stages {
         stage('Build') {
@@ -14,12 +19,7 @@ pipeline {
                 sh "./mvnw.cmd clean test -e"
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-                sh "./mvnw.cmd clean package -e"
-            }
-        }
+
 	stage ('Run'){
             steps
                 {
