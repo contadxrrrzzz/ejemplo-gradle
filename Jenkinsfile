@@ -1,32 +1,55 @@
-def call(){
-  
-	pipeline {
+def maven_script
+def gradle_script
 
-		agent any
-		
-		environment {
-		    STAGE = ''
-		}
+pipeline {
+    agent any
+	
+	tools{
+	
+	gradle 'gradle'
+	maven 'Maven'	
+	}
+	
+	parameters {
+	choice (name: 'buildTool', choices: ['maven', 'gradle'], description: 'Indicar herramienta de construcción')
+	booleanParam (name: 'PushToNexus', defaultValue: false, description: '')
+	
+	}
 
-		parameters {
-			choice(name: 'buildTool', choices: ['gradle', 'maven'], description: 'Indicar herramienta de construcción')
-		}
+    stages {
 
-		stages{
-			stage('Pipeline'){
-				steps{
-					script{
-						println 'Pipeline'
+        stage ('Load Scripts'){
+            steps{
+                script{
+                    maven_script= load "maven.groovy"
+                    gradle_script= load "gradle.groovy"
 
-						if (params.buildTool == "gradle") {
-							println "gradle"
-						} else {
-							println "maven"
-						}
-
-					}
-				}
+                }
+            }
+        }
+	
+	    
+	    stage ('Stages'){
+            steps{
+                script{
+			println "Build"
+			if (params.buildTool == "maven")
+			{
+			maven_script.maven_build()
 			}
-		}
-    }
-}
+			else 
+			{
+			 gradle_script.gradle_build()
+			}
+                   
+
+                }
+            }
+        }
+	    
+	    
+	    
+	
+   
+    }  
+ }
