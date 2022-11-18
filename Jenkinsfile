@@ -2,7 +2,7 @@ pipeline {
     agent any
 	
 	tools{
-	gradle 'grdl'
+	gradle 'gradle'
 		maven 'maven'
 	}
 
