@@ -1,4 +1,4 @@
-def call(String pipelineType){
+def gradle_build{
     
  stage('Build) {
    sh 'gradle build'
