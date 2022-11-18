@@ -1,13 +1,41 @@
 pipeline {
     agent any
+	
+	tools{
+	
+	gradle 'gradle'
+	maven 'maven'	
+	}
+	
+	parameters {
+	choice (name: 'Build_Tool', choices: ['maven', 'gradle'], description: '')
+	booleanParam (name: 'PushToNexus', defaultValue: false, description: '')
+	
+	}
 
     stages {
-        stage('Build') {
+        stage('Build-MVN') {
+		when{
+			expression {
+			params.Build_Tool = 'maven'
+			}
+		}
+		
+		
             steps {
                 echo 'Building..'
-                sh "./mvnw clean compile -e"
+                sh "mvn clean install -e"
             }
         }
+	      stage('Build-Gradle') {
+            steps {
+                echo 'Building..'
+                sh "gradle build"
+            }
+        }
+	    
+	    
+	    
         stage('Test') {
             steps {
                 echo 'Testing..'
@@ -35,6 +63,11 @@ pipeline {
 
 	
 	stage('uploadNexus') {
+		when {
+			expression {
+			params.PushToNexus
+			}
+		}
             steps {
                 echo 'Uploading Nexus'
 				   nexusPublisher nexusInstanceId: 'nsx01', nexusRepositoryId: 'taller4-clases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/jenkins_home/workspace/taller4-clases_maven-gradle/build/DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.1']]]
