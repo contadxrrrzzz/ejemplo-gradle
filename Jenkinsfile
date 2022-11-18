@@ -29,7 +29,7 @@ pipeline {
         }
 	
 	    
-	    stage ('Stages'){
+	    stage ('Build'){
             steps{
                 script{
 			println "Build"
@@ -40,6 +40,24 @@ pipeline {
 			else 
 			{
 			 gradle_script.gradle_build()
+			}
+                   
+
+                }
+            }
+        }
+	        stage ('SonarQube analysis'){
+			 withSonarQubeEnv('Sonar')
+            steps{
+                script{
+			println "Build"
+			if (params.buildTool == "maven")
+			{
+			maven_script.maven_sonar()
+			}
+			else 
+			{
+			 gradle_script.gradle_sonar()
 			}
                    
 
