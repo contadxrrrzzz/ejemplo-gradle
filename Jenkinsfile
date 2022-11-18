@@ -29,8 +29,8 @@ pipeline {
             }
         }
 	    
-	string a= params.Build_Tool
-     if (a.equals("maven"))
+     string a="maven";
+     if (params.Build_Tool.equals(a))
         {
 
             steps
