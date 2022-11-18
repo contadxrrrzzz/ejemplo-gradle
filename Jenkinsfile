@@ -28,8 +28,9 @@ pipeline {
                 }
             }
         }
-
-     if (params.Build_Tool.equals('maven'))
+	    
+	string a= params.Build_Tool
+     if (a.equals("maven"))
         {
 
             steps
