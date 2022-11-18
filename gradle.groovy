@@ -1,23 +1,20 @@
-def gradle_build()
-{
-    
- stage('Build) {
+def gradle_build() {
    sh 'gradle build'
   }
 
-  stage('Check') {
+def gradle_check(){
    sh 'gradle check'
   }
 
-  stage('Clean') {
+def gradle_clean(){
     sh "gradle clean"
   }
   
-  stage('Run') {
+def gradle_run(){
     sh "gradle run"
     sleep 20
   }
   
-}
+
 return this
 
