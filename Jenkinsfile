@@ -47,7 +47,7 @@ pipeline {
             }
         }
 	        stage ('SonarQube analysis'){
-			 withSonarQubeEnv('Sonar')
+			 withSonarQubeEnv('sonar')
             steps{
                 script{
 			println "Build"
