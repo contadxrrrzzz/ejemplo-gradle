@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-     if (choices.equals("maven"))
+     if (params.Build_Tool.equals('maven'))
         {
 
             steps
