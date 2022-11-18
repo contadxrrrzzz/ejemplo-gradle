@@ -2,6 +2,7 @@ pipeline {
     agent any
 	
 	tools{
+	sonar 'sonar'
 	gradle 'gradle'
 		maven 'maven'
 	}
@@ -20,7 +21,7 @@ pipeline {
 
      
       stage('SonarQube analysis') {
-    withSonarQubeEnv('Sonar') {
+    withSonarQubeEnv() {
       sh './gradlew sonarqube'
     } // submitted SonarQube taskId is automatically attached to the pipeline context
   }
