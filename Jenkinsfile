@@ -24,7 +24,7 @@ pipeline {
       sh './gradlew sonarqube'
     } // submitted SonarQube taskId is automatically attached to the pipeline context
   }
-}
+
       	stage ('Run'){
             steps
                 {
@@ -34,5 +34,7 @@ pipeline {
       
       
  }
+}
+
 
 
