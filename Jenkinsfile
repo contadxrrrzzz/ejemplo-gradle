@@ -35,7 +35,7 @@ pipeline {
 			println "Build"
 			if (params.buildTool == "maven")
 			{
-			maven_script.maven_build()
+			maven_script.maven_compile()
 			}
 			else 
 			{
