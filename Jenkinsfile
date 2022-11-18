@@ -25,7 +25,7 @@ pipeline {
       	stage ('Run'){
             steps
                 {
-                    sh 'gradle run'        
+                    sh 'gradle bootRun'        
                 }            
         }
       
