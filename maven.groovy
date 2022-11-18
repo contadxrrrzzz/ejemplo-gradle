@@ -1,6 +1,7 @@
-def call(String pipelineType){
-    
- stage('Compile') {
+def maven_build()
+{
+
+stage('Compile') {
     sh './mvnw clean compile -e'
   }
 
@@ -17,5 +18,6 @@ def call(String pipelineType){
     sleep 20
   }
   
+}
 }
 return this
