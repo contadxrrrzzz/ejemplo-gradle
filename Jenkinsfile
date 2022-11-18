@@ -53,10 +53,12 @@ pipeline {
 			println "Build"
 			if (params.buildTool == "maven")
 			{
+			withSonarQubeEnv('Sonar')
 			maven_script.maven_sonar()
 			}
 			else 
 			{
+			  withSonarQubeEnv('Sonar')
 			 gradle_script.gradle_sonar()
 			}
                    
