@@ -30,7 +30,7 @@ pipeline {
         }
 	    
    
-     if (params.Build_Tool = 'maven')
+     if (params.Build_Tool == 'maven')
         {
 
             steps
