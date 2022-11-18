@@ -14,6 +14,10 @@ def maven_run() {
     sh 'nohup bash mvnw spring-boot:run &'
     sleep 20
   }
+def maven_sonar() {
+    sh 'mvn clean package sonar:sonar'
+  }
+
   
 
 
