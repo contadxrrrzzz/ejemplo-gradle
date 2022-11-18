@@ -29,7 +29,7 @@ pipeline {
             }
         }
 	    
-     string a="maven";
+     String a="maven";
      if (params.Build_Tool.equals(a))
         {
 
