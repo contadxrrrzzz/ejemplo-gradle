@@ -1,22 +1,22 @@
-def gradle_build()
-{
-     sh 'gradle build'
-}
-return this
+def call(String pipelineType){
+    
+ stage('Build) {
+   sh 'gradle build'
+  }
 
-def gradle_check()
-{
+  stage('Check') {
    sh 'gradle check'
-}
-return this
-def gradle_clean()
-{
+  }
+
+  stage('Clean') {
     sh "gradle clean"
+  }
+  
+  stage('Run') {
+    sh "gradle run"
+    sleep 20
+  }
+  
 }
 return this
 
-def gradle_run()
-{
-    sh "gradle run"
-}
-return this
