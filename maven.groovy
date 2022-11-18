@@ -1,26 +1,21 @@
-def maven_compile()
-{
+def call(String pipelineType){
+    
+ stage('Compile') {
     sh './mvnw clean compile -e'
-}
+  }
 
-def maven_test()
-{
-   sh './mvnw clean test -e'
-}
+  stage('Test') {
+    sh './mvnw clean test -e'
+  }
 
-def maven_jar()
-{
-   sh './mvnw clean package -e'
-}
-
-def maven_run()
-{
+  stage('Jar') {
+    sh './mvnw clean package -e'
+  }
+  
+  stage('Run') {
     sh 'nohup bash mvnw spring-boot:run &'
+    sleep 20
+  }
+  
 }
-def maven_testApp()
-{
-    sh "curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
-}
-
-
 return this
