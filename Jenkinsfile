@@ -12,7 +12,7 @@ pipeline {
 	}
 	
 	parameters {
-	choice (name: 'Build_Tool', choices: ['maven', 'gradle'], description: '')
+	choice (name: 'buildTool', choices: ['maven', 'gradle'], description: 'Indicar herramienta de construcción')
 	booleanParam (name: 'PushToNexus', defaultValue: false, description: '')
 	
 	}
@@ -28,31 +28,27 @@ pipeline {
                 }
             }
         }
+	
 	    
-   
-     if (params.Build_Tool == 'maven')
-        {
-
-            steps
-            {
-            script 
-            {
-                mvn_script.maven_build()
-            }
-
-        }
-        }
-        else
-        {
-
+	    stage ('Pipeline'){
             steps{
-            script {
-                gradle_script.gradle_build()
+                script{
+			println "Pipeline"
+			  if (params.buildTool == "maven")
+			{
+			mvn_script.maven_build()
+			}
+			else 
+			{
+			 gradle_script.gradle_build()
+			}
+                   
+
+                }
             }
-
-
-
         }
+	    
+	    
 	
    
     }  
