@@ -8,7 +8,7 @@ pipeline {
 	tools{
 	
 	gradle 'gradle'
-	maven 'maven'	
+	maven 'Maven'	
 	}
 	
 	parameters {
