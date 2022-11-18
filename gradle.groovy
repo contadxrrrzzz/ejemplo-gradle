@@ -17,9 +17,8 @@ def gradle_run(){
   
 def gradle_sonar()
 {
-    withSonarQubeEnv('Sonar') { // Will pick the global server connection you have configured
       sh './gradlew sonarqube'
-    }
+    
 }
 
 
