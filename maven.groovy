@@ -1,23 +1,20 @@
-def maven_build()
-{
-
-stage('Compile') {
+def maven_compile() {
     sh './mvnw clean compile -e'
   }
 
-  stage('Test') {
+def maven_test()  {
     sh './mvnw clean test -e'
   }
 
-  stage('Jar') {
+def maven_jar() {
     sh './mvnw clean package -e'
   }
   
-  stage('Run') {
+def maven_run() {
     sh 'nohup bash mvnw spring-boot:run &'
     sleep 20
   }
   
-}
-}
+
+
 return this
