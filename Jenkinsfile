@@ -30,10 +30,10 @@ pipeline {
         }
 	
 	    
-	    stage ('Pipeline'){
+	    stage ('Build'){
             steps{
                 script{
-			println "Pipeline"
+			println "Build"
 			if (params.buildTool == "maven")
 			{
 			maven_script.maven_build()
@@ -47,6 +47,7 @@ pipeline {
                 }
             }
         }
+	    
 	    
 	    
 	
