@@ -1,4 +1,5 @@
-def gradle_build{
+def gradle_build()
+{
     
  stage('Build) {
    sh 'gradle build'
