@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-     if (choice.equals('maven'))
+     if (choices.equals("maven"))
         {
 
             steps
