@@ -20,8 +20,8 @@ pipeline {
 
      
       stage('SonarQube analysis') {
-    withSonarQubeEnv('My SonarQube Server') {
-      sh 'gradle clean package sonar:sonar'
+    withSonarQubeEnv('Sonar') {
+      sh './gradlew sonarqube'
     } // submitted SonarQube taskId is automatically attached to the pipeline context
   }
 }
