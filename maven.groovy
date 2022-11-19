@@ -1,24 +1,23 @@
-def maven_compile() {
-    sh './mvnw clean compile -e'
-  }
-
-def maven_test()  {
-    sh './mvnw clean test -e'
-  }
-
-def maven_jar() {
-    sh './mvnw clean package -e'
-  }
+def call(){
   
-def maven_run() {
-    sh 'nohup bash mvnw spring-boot:run &'
-    sleep 20
+  stage(){
+    echo 'Compile..'
+    sh "./mvnw clean compile -e"
+    echo 'Testing..'
+    sh "./mvnw clean test -e"
+    echo 'Package..'
+    sh "./mvnw clean package -e"
+    echo 'SonarQube..'
+    withSonarQubeEnv('Sonar'){
+		sh 'mvn clean package sonar:sonar'
+    }
+    echo 'QualityGate..'
+    timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true
+    }
+
   }
-def maven_sonar() {
-    sh 'mvn clean package sonar:sonar'
-  }
 
-  
+}
 
-
-return this
+return this;
