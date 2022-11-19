@@ -48,20 +48,23 @@ pipeline {
         }
 	        stage ('SonarQube analysis'){
 			 
-            steps{
-		    withSonarQubeEnv('Sonar')
+            
              
+               script{
+			println "Build"
 			if (params.buildTool == "maven")
 			{
-			
-			maven_script.maven_sonar()
+			steps{
+		    		withSonarQubeEnv('Sonar')
+				maven_script.maven_sonar()
+			}
 			}
 			else 
 			{
 			
 			 gradle_script.gradle_sonar()
 			}
-                   
+	       }
 
                 
             }
