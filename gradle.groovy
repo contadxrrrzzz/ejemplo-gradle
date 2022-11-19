@@ -1,26 +1,18 @@
-def gradle_build() {
-   sh 'gradle build'
+def call(){
+  
+  stage(){
+    sh 'gradle build'
+    echo 'SonarQube..'
+    withSonarQubeEnv('Sonar'){
+		sh 'gradle sonarqube'
+    }
+    echo 'QualityGate..'
+    timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true
+    }
+
   }
 
-def gradle_check(){
-   sh 'gradle check'
-  }
-
-def gradle_clean(){
-    sh "gradle clean"
-  }
-  
-def gradle_run(){
-    sh "gradle run"
-    sleep 20
-  }
-  
-def gradle_sonar()
-{
-      sh './gradlew sonarqube'
-    
 }
 
-
-return this
-
+return this;
