@@ -41,3 +41,11 @@ tasks.withType(JavaCompile) {
 test {
  useJUnitPlatform()
 }
+
+apply plugin: 'org.sonarqube'
+
+sonarqube {
+  properties {
+    property "sonar.host.url", "http://sonarqube:9000"
+  }
+}
