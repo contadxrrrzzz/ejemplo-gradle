@@ -18,7 +18,7 @@ def gradle_run(){
 def gradle_sonar()
 {
       withSonarQubeEnv('Sonar'){
-		  sh "./gradlew sonarqube"
+		  sh "gradle sonarqube"
     }
     
 }
