@@ -27,6 +27,9 @@ def gradle_sonarQuality(){
                     waitForQualityGate abortPipeline: true
     }
 }
+def gradle_nexus(){
+
+}
 
 
 return this;
