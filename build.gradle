@@ -43,6 +43,6 @@ test {
  useJUnitPlatform()
 }
 
-apply plugin: 'org.sonarqube'
+
 
 
