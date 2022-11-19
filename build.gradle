@@ -48,7 +48,7 @@ test {
 
 sonarqube {
   properties {
-    property "sonar.host.url", "http://sonarqube:9000"
+    property "Sonar.host.url", "http://sonarqube:9000"
   }
 }
 
