@@ -7,6 +7,7 @@ plugins {
     id 'maven-publish'
     id 'org.springframework.boot' version '2.3.4.RELEASE'
     id "org.sonarqube" version "3.4.0.2513"
+    id "io.github.gradle-nexus.publish-plugin" version "3.43.0-01"
   
    
 }
@@ -51,7 +52,16 @@ sonarqube {
     property "Sonar.host.url", "http://sonarqube:9000"
   }
 }
-
+nexusPublishing {
+    repositories {
+        myNexus {
+            nexusUrl = uri("https://nexus:8081")
+            snapshotRepositoryUrl = uri("https://nexus:8081/snapshots")
+            username = "jenkins" 
+            password = "jenkins" 
+        }
+    }
+}
 
 
 
