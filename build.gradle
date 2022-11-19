@@ -6,7 +6,7 @@ plugins {
     id 'java'
     id 'maven-publish'
     id 'org.springframework.boot' version '2.3.4.RELEASE'
-    id 'org.sonarqube'
+   
 }
 
 repositories {
@@ -45,8 +45,4 @@ test {
 
 apply plugin: 'org.sonarqube'
 
-sonarqube {
-  properties {
-    property "sonar.host.url", "http://sonarqube:9000"
-  }
-}
+
