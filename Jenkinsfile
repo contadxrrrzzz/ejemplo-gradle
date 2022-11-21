@@ -76,7 +76,7 @@ pipeline {
 	stage('uploadNexus') {
         when {
             expression {
-            params.PushToNexus
+            params.PushToNexus == true
 		 if (params.buildTool == "maven")
 			{
 			maven_script.maven_nexus()
