@@ -79,7 +79,7 @@ pipeline {
 			}
 			if (params.buildTool == "gradle" && params.PushToNexus == true)
 			{
-			 gradle_script.maven_nexus()
+			 gradle_script.gradle_nexus()
 			}   
 			
 		     }
