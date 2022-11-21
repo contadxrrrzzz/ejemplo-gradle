@@ -50,7 +50,7 @@ pipeline {
 	    
 	    
 	    
-	    stage ('Sonar'){
+	    stage ('Sonarqube Analisis'){
             steps{
                 script{
 			println "Sonar"
