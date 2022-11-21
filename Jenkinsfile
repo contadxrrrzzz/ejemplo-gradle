@@ -69,7 +69,7 @@ pipeline {
         }
 	    
 	    stage('uploadNexus') {
-		    step{
+		    steps{
         when {
             expression {
             params.PushToNexus == true
