@@ -81,9 +81,7 @@ pipeline {
 			{
 			 gradle_script.maven_nexus()
 			}   
-			 else
-			 {
-			 }
+			
 		     }
 	   
         }
