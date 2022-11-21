@@ -70,20 +70,22 @@ pipeline {
 	    
 	    stage('uploadNexus') {
 		    steps{
-        when {
-            expression {
-            params.PushToNexus == true
+      
+            
 		     script{
-		 if (params.buildTool == "maven")
+		 if (params.buildTool == "maven" and params.PushToNexus == true)
 			{
 			maven_script.maven_nexus()
 			}
-			else 
+			if else (params.buildTool == "gradle" and params.PushToNexus == true)
 			{
 			 gradle_script.gradle_nexus()
 			}   
+			 else
+			 {
+			 }
 		     }
-	    }}
+	   
         }
 }
 	    
