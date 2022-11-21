@@ -57,7 +57,7 @@ publishing{
 repositories{
     maven{
         name 'nexus'
-        url "http://localhost:3002/repository/taller4-clases-gradle/"
+        url "http://nexus:3002/repository/taller4-clases-gradle/"
         credentials{
             username = "jenkins"
             password ="jenkins"
