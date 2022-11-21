@@ -59,7 +59,7 @@ repositories{
         name 'nexus'
         url "http://localhost:3002/repository/taller4-clases-gradle/"
         credentials{
-            userName = "jenkins"
+            username = "jenkins"
             password ="jenkins"
         }
     }
