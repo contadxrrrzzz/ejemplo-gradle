@@ -12,7 +12,7 @@ plugins {
 repositories {
     mavenLocal()
     maven {
-        url = uri('http://nexus:3002/maven2/')
+        url = uri('https://repo.maven.apache.org/maven2/)
         allowInsecureProtocol = true
     }
 }
@@ -60,6 +60,7 @@ repositories{
     maven{
         name 'nexus'
         url "http://nexus:3002/repository/taller4-clases-gradle/"
+        allowInsecureProtocol = true
         credentials{
             username = "jenkins"
             password ="jenkins"
