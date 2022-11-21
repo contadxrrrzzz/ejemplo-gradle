@@ -52,16 +52,8 @@ sonarqube {
     property "Sonar.host.url", "http://sonarqube:9000"
   }
 }
-nexusPublishing {
-    repositories {
-        myNexus {
-            nexusUrl = uri("https://nexus:8081")
-            snapshotRepositoryUrl = uri("https://nexus:8081/snapshots")
-            username = "jenkins" 
-            password = "jenkins" 
-        }
-    }
-}
+
+
 
 
 
