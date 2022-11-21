@@ -69,6 +69,7 @@ pipeline {
         }
 	    
 	    stage('uploadNexus') {
+		    step{
         when {
             expression {
             params.PushToNexus == true
@@ -82,7 +83,7 @@ pipeline {
 			 gradle_script.gradle_nexus()
 			}   
 		     }
-            }
+	    }}
         }
 }
 	    
