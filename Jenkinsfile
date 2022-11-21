@@ -8,26 +8,14 @@ pipeline {
 	}
 
     stages {
-        stage('Build') {
+        stage('Publicar Nexus') {
             steps {
-                sh 'gradle build'
+                sh 'gradle build publish'
             }
         }
-        stage('Check') {
-            steps {
-                sh 'gradle check'
-            }
-        }
+      
 
-     
-
-
-      	stage ('Run'){
-            steps
-                {
-                    sh 'gradle run'        
-                }            
-        }
+    
       
       
  }
