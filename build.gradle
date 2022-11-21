@@ -14,7 +14,7 @@ repositories {
     maven {
         url = uri('https://repo.maven.apache.org/maven2/')
         name 'nexus'
-        url "http://nexus:3002/repository/taller4-clases-gradle/"
+        url "http://nexus:8081/repository/taller4-clases-gradle/"
         allowInsecureProtocol = true
         credentials{
             username = "jenkins"
