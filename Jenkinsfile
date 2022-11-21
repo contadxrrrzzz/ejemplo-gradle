@@ -73,11 +73,11 @@ pipeline {
       
             
 		     script{
-		 if (params.buildTool == "maven" and params.PushToNexus == true)
+		 if (params.buildTool == "maven" && params.PushToNexus == true)
 			{
 			maven_script.maven_nexus()
 			}
-			if else (params.buildTool == "gradle" and params.PushToNexus == true)
+			if else (params.buildTool == "gradle" && params.PushToNexus == true)
 			{
 			 gradle_script.gradle_nexus()
 			}   
