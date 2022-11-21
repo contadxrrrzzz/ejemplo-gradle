@@ -77,6 +77,15 @@ pipeline {
         when {
             expression {
             params.PushToNexus
+		 if (params.buildTool == "maven")
+			{
+			maven_script.maven_nexus()
+			}
+			else 
+			{
+			 gradle_script.gradle_nexus()
+			}   
+		    
             }
         }
 	    
@@ -84,3 +93,4 @@ pipeline {
 	
    
     }  
+}
