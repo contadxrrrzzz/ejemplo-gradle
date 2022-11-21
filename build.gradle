@@ -41,3 +41,26 @@ tasks.withType(JavaCompile) {
 test {
  useJUnitPlatform()
 }
+
+apply plugin: 'maven-publish'
+publishing{
+    publications {
+        maven(MavenPublication){
+            artifact("build/libs/DevOpsUsach2020-$version"+".jar"){
+                extension 'jar'
+            }
+        }
+    }
+
+
+}
+repositories{
+    maven{
+        name 'nexus'
+        url "http://localhost:3002/repository/taller4-clases-gradle/"
+        credentials{
+            userName = "jenkins"
+            password ="jenkins"
+        }
+    }
+}
