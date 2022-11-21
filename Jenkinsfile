@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Publicar Nexus') {
             steps {
-                sh 'gradle clean build publish'
+                sh 'gradle build publish'
             }
         }
       
