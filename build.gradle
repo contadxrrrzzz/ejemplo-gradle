@@ -12,6 +12,7 @@ plugins {
 repositories {
     mavenLocal()
     maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
         name 'nexus'
         url "http://nexus:3002/repository/taller4-clases-gradle/"
         allowInsecureProtocol = true
@@ -38,6 +39,9 @@ publishing {
     publications {
         maven(MavenPublication) {
             from(components.java)
+             artifact("build/libs/DevOpsUsach2020-$version"+".jar"){
+                extension 'jar'
+            }
         }
     }
 }
@@ -49,16 +53,5 @@ test {
  useJUnitPlatform()
 }
 
-apply plugin: 'maven-publish'
-publishing{
-    publications {
-        maven(MavenPublication){
-            artifact("build/libs/DevOpsUsach2020-$version"+".jar"){
-                extension 'jar'
-            }
-        }
-    }
 
-
-}
 
