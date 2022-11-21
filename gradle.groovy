@@ -28,7 +28,7 @@ def gradle_sonarQuality(){
     }
 }
 def gradle_nexus(){
-
+nexusPublisher nexusInstanceId: 'nsx01', nexusRepositoryId: 'taller4-clases', packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.0']]]
 }
 
 
